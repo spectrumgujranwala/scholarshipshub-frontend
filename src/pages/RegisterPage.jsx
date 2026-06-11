@@ -9,6 +9,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const { register, loginWithGoogle } = useAuth();
@@ -26,8 +27,8 @@ const RegisterPage = () => {
     setIsLoading(true);
 
     try {
-      await register(email, password);
-      navigate('/dashboard');
+      const data = await register(email, password);
+      setSuccessMsg(data.message || 'Registration successful! Please check your email to verify your account.');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Try again.');
     } finally {
@@ -59,7 +60,7 @@ const RegisterPage = () => {
   return (
     <div className="auth-page" style={{
       display: 'flex', justifyContent: 'center', alignItems: 'center',
-      minHeight: 'calc(100vh - 80px)', backgroundColor: 'var(--bg-light)'
+      minHeight: 'calc(100vh - 80px)', backgroundColor: 'var(--bg-light)', padding: '40px 20px'
     }}>
       <div className="card" style={{ width: '100%', maxWidth: '450px', padding: '40px' }}>
         <div style={{ textAlign: 'center', marginBottom: '30px' }}>
@@ -76,7 +77,17 @@ const RegisterPage = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit}>
+        {successMsg && (
+          <div style={{
+            backgroundColor: '#dcfce3', color: '#166534', padding: '12px',
+            borderRadius: 'var(--radius-sm)', marginBottom: '20px', fontSize: '0.9rem'
+          }}>
+            {successMsg}
+          </div>
+        )}
+
+        {!successMsg && (
+          <form onSubmit={handleSubmit}>
           <div className="form-group" style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 600, fontSize: '0.9rem' }}>Email Address</label>
             <div style={{ position: 'relative' }}>
@@ -142,6 +153,7 @@ const RegisterPage = () => {
             )}
           </button>
         </form>
+        )}
 
         <div style={{ display: 'flex', alignItems: 'center', margin: '20px 0', color: 'var(--text-muted)' }}>
           <div style={{ flex: 1, height: '1px', backgroundColor: '#e2e8f0' }}></div>

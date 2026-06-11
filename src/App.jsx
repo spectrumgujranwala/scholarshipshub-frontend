@@ -17,6 +17,7 @@ import AdminUniversityApps from './pages/AdminUniversityApps';
 import AdminScholarships from './pages/AdminScholarships';
 import NotificationsPage from './pages/NotificationsPage';
 import HomePage from './pages/HomePage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
 const ProtectedRoute = ({ children, role }) => {
   const { user, loading } = useAuth();
 
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/verify-email/:token" element={<VerifyEmailPage />} />
             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
             <Route path="/application/edit" element={<ProtectedRoute><ApplicationForm /></ProtectedRoute>} />
             <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />

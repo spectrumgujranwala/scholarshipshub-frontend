@@ -31,6 +31,12 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
     const { data } = await axios.post('/api/auth/register', { email, password });
+    // Note: Don't set user on register anymore, as they need to verify email
+    return data;
+  };
+
+  const verifyEmail = async (token) => {
+    const { data } = await axios.get(`/api/auth/verify-email/${token}`);
     setUser(data);
     sessionStorage.setItem('user', JSON.stringify(data));
     return data;
@@ -42,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, loginWithGoogle, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, loginWithGoogle, register, verifyEmail, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -56,7 +56,7 @@ const LoginPage = () => {
   return (
     <div className="auth-page" style={{
       display: 'flex', justifyContent: 'center', alignItems: 'center',
-      minHeight: 'calc(100vh - 80px)', backgroundColor: 'var(--bg-light)'
+      minHeight: 'calc(100vh - 80px)', backgroundColor: 'var(--bg-light)', padding: '40px 20px'
     }}>
       <div className="card" style={{ width: '100%', maxWidth: '400px', padding: '40px' }}>
         <div style={{ textAlign: 'center', marginBottom: '30px' }}>
