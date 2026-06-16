@@ -29,7 +29,7 @@ const ProtectedRoute = ({ children, role }) => {
 };
 
 const App = () => {
-  const googleClientId = "94809376771-g4eq78o2gjeea138hmuhmkgml6b78qs8.apps.googleusercontent.com";
+  const googleClientId = "925269195030-i82urots4gofo9icclh6u1250dme1eqa.apps.googleusercontent.com";
 
   return (
     <GoogleOAuthProvider clientId={googleClientId}>
