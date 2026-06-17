@@ -68,7 +68,7 @@ const AdminApplicationDetail = () => {
   return (
     <AdminLayout>
       <div className="admin-detail">
-        <div className="flex justify-between items-center mb-20">
+        <div className="admin-header flex justify-between items-center mb-20">
           <button onClick={() => navigate('/admin/applications')} className="flex items-center gap-5 btn-dark" style={{ padding: '8px 15px', borderRadius: '4px' }}>
             <ChevronLeft size={18} /> Back to Applicants
           </button>
@@ -115,7 +115,7 @@ const AdminApplicationDetail = () => {
 
             {/* 3. Academic Background */}
             {renderSection('Academic Background', <GraduationCap size={20} />, (
-              <div style={{ overflowX: 'auto' }}>
+              <div className="table-responsive" style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px' }}>
                   <thead>
                     <tr style={{ textAlign: 'left', borderBottom: '2px solid #eee' }}>

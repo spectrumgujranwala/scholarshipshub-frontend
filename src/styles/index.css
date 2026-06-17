@@ -159,9 +159,202 @@ input:focus, textarea:focus, select:focus {
 .btn-light:hover { background-color: #e5e7eb; }
 
 @media (max-width: 768px) {
-  .flex-col-mobile { flex-direction: column; }
-  .grid-cols-1-mobile { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .flex-col-mobile { flex-direction: column !important; }
+  .grid-cols-1-mobile { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
   .footer-contacts { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  /* Table Responsiveness */
+  .table-responsive {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin-bottom: 15px !important;
+  }
+  .table-responsive table {
+    min-width: 600px !important;
+  }
+
+  /* Admin Layout - Premium Bottom Tab Navigation */
+  .admin-layout {
+    flex-direction: column !important;
+  }
+  .admin-layout main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 15px !important;
+    padding-bottom: 90px !important; /* spacing for bottom tab bar */
+  }
+  .admin-sidebar {
+    width: 100% !important;
+    height: 70px !important;
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    border-right: none !important;
+    border-top: 1px solid var(--border-color) !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    z-index: 999 !important;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05) !important;
+  }
+  .admin-sidebar .sidebar-menu {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+  .admin-sidebar .sidebar-menu p {
+    display: none !important; /* hide Management title */
+  }
+  .admin-sidebar .sidebar-menu > div {
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    gap: 0 !important;
+  }
+  .admin-sidebar .sidebar-menu a {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 12px !important;
+    flex: 1 !important;
+    border-radius: var(--radius-sm) !important;
+  }
+  .admin-sidebar .sidebar-menu a .flex.items-center.gap-15 {
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+  .admin-sidebar .sidebar-menu a span {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+  }
+  .admin-sidebar .sidebar-menu a svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .admin-sidebar .sidebar-menu a > svg {
+    display: none !important; /* hide right chevron arrow */
+  }
+  .admin-sidebar .sidebar-footer {
+    display: none !important; /* hide logout from bottom bar (already in header) */
+  }
+
+  /* Admin Header Stacking */
+  .admin-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 15px !important;
+    margin-bottom: 25px !important;
+  }
+  .admin-header .flex {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .admin-header .flex > * {
+    flex: 1 1 auto !important;
+  }
+  .admin-header input,
+  .admin-header select {
+    width: 100% !important;
+  }
+
+  /* Admin University Apps workspace stack */
+  .admin-university-apps .students-sidebar {
+    width: 100% !important;
+    max-height: 250px !important;
+    overflow-y: auto !important;
+  }
+
+  /* Student Dashboard Welcome Header */
+  .welcome-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 15px !important;
+    text-align: center !important;
+  }
+  .welcome-header .status-badge {
+    align-self: center !important;
+  }
+
+  /* Global Card Padding Scale */
+  .card {
+    padding: 16px !important;
+  }
+
+  /* Modals Scale */
+  div[style*="position: 'fixed'"][style*="zIndex: 2000"] > div {
+    width: 95% !important;
+    margin: 10px !important;
+    max-height: 95vh !important;
+  }
+
+  /* Stack Grid columns inside admin & forms */
+  .admin-detail div[style*="gridTemplateColumns"],
+  .admin-dashboard div[style*="gridTemplateColumns"],
+  .university-applications-manager div[style*="gridTemplateColumns"],
+  .application-form-container div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Horizontal Steps scroll in application form */
+  .application-form-container > div:first-child {
+    min-width: 100% !important;
+    position: sticky !important;
+    top: 70px !important;
+    z-index: 100 !important;
+  }
+  .application-form-container > div:first-child .card {
+    border-radius: 0 !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  .application-form-container ul {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 10px 5px !important;
+    background-color: var(--white) !important;
+  }
+  .application-form-container ul::-webkit-scrollbar {
+    height: 4px;
+  }
+  .application-form-container ul::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 2px;
+  }
+  .application-form-container ul .step-item {
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+    padding: 8px 16px !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-bottom: 3px solid transparent !important;
+    align-items: center !important;
+  }
+  .application-form-container ul .step-item.active {
+    border-bottom-color: var(--primary-red) !important;
+  }
+  .application-form-container ul .step-item span {
+    font-size: 0.85rem !important;
+  }
+
+  /* Global Navbar Wraps */
+  .navbar .container {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .navbar .flex.items-center.gap-20 {
+    gap: 15px !important;
+    width: 100% !important;
+    justify-content: space-around !important;
+  }
+  .navbar .email-text {
+    display: none !important;
+  }
 }
 
 /* Top Bar Styles */

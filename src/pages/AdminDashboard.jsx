@@ -68,7 +68,7 @@ const AdminDashboard = () => {
   return (
     <AdminLayout>
       <div className="admin-dashboard">
-        <div className="flex justify-between items-center mb-20">
+        <div className="admin-header flex justify-between items-center mb-20">
           <h1 style={{ fontSize: '1.8rem' }}>Admin Dashboard</h1>
           <button className="btn btn-primary" onClick={() => navigate('/admin/applications')}>View All Applicants</button>
         </div>
@@ -91,34 +91,36 @@ const AdminDashboard = () => {
           <div style={{ flex: 2 }}>
             <div className="card">
               <h3 style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>Recent Applications</h3>
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr style={{ textAlign: 'left', borderBottom: '2px solid #f3f4f6' }}>
-                    <th style={{ padding: '12px 10px' }}>Applicant</th>
-                    <th style={{ padding: '12px 10px' }}>Program</th>
-                    <th style={{ padding: '12px 10px' }}>Status</th>
-                    <th style={{ padding: '12px 10px' }}>Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {stats.recent.map((app, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid #f3f4f6' }}>
-                      <td style={{ padding: '12px 10px', fontWeight: 600 }}>
-                        {app.applicantInfo?.firstName ? `${app.applicantInfo.firstName} ${app.applicantInfo.lastName}` : app.user?.email || 'N/A'}
-                      </td>
-                      <td style={{ padding: '12px 10px' }}>{app.programInfo?.programType || 'N/A'}</td>
-                      <td style={{ padding: '12px 10px' }}>
-                        <span style={{
-                          padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem',
-                          backgroundColor: app.status === 'accepted' ? '#ecfdf5' : '#f3f4f6',
-                          color: app.status === 'accepted' ? '#10b981' : '#666'
-                        }}>{app.status}</span>
-                      </td>
-                      <td style={{ padding: '12px 10px', fontSize: '0.85rem' }}>{new Date(app.updatedAt).toLocaleDateString()}</td>
+              <div className="table-responsive">
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr style={{ textAlign: 'left', borderBottom: '2px solid #f3f4f6' }}>
+                      <th style={{ padding: '12px 10px' }}>Applicant</th>
+                      <th style={{ padding: '12px 10px' }}>Program</th>
+                      <th style={{ padding: '12px 10px' }}>Status</th>
+                      <th style={{ padding: '12px 10px' }}>Date</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {stats.recent.map((app, i) => (
+                      <tr key={i} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                        <td style={{ padding: '12px 10px', fontWeight: 600 }}>
+                          {app.applicantInfo?.firstName ? `${app.applicantInfo.firstName} ${app.applicantInfo.lastName}` : app.user?.email || 'N/A'}
+                        </td>
+                        <td style={{ padding: '12px 10px' }}>{app.programInfo?.programType || 'N/A'}</td>
+                        <td style={{ padding: '12px 10px' }}>
+                          <span style={{
+                            padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem',
+                            backgroundColor: app.status === 'accepted' ? '#ecfdf5' : '#f3f4f6',
+                            color: app.status === 'accepted' ? '#10b981' : '#666'
+                          }}>{app.status}</span>
+                        </td>
+                        <td style={{ padding: '12px 10px', fontSize: '0.85rem' }}>{new Date(app.updatedAt).toLocaleDateString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 

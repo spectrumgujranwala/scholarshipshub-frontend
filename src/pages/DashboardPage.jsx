@@ -97,7 +97,7 @@ const DashboardPage = () => {
 
   return (
     <div className="dashboard-page container mt-20">
-      <div className="welcome-header flex justify-between items-center mb-20" style={{ padding: '0 0 20px 0', borderBottom: '1px solid var(--border-color)' }}>
+      <div className="welcome-header flex justify-between items-center mb-20 flex-col-mobile gap-10" style={{ padding: '0 0 20px 0', borderBottom: '1px solid var(--border-color)' }}>
         <div>
           <h1 style={{ fontSize: '1.8rem' }}>Welcome, {application?.applicantInfo?.firstName ? `${application.applicantInfo.firstName} ${application.applicantInfo.lastName}` : user.email.split('@')[0]}</h1>
           <p style={{ color: 'var(--text-muted)' }}>Manage your scholarship assessment profile and track your status.</p>

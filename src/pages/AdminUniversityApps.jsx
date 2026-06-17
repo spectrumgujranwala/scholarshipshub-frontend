@@ -196,7 +196,7 @@ const AdminUniversityApps = () => {
 
   return (
     <AdminLayout>
-      <div className="admin-university-apps flex gap-20">
+      <div className="admin-university-apps flex gap-20 flex-col-mobile">
         {/* Left Panel: Students List */}
         <div className="students-sidebar card" style={{ width: '300px', padding: '0', height: 'fit-content' }}>
           <div className="p-15 border-bottom">

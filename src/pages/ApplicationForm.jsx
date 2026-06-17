@@ -192,7 +192,7 @@ const ApplicationForm = () => {
                 }
 
                 return (
-                  <li key={index} style={{
+                  <li key={index} className={`step-item ${isActive ? 'active' : ''} ${isComplete ? 'complete' : ''} ${isPartial ? 'partial' : ''}`} style={{
                     padding: '15px 20px',
                     borderBottom: index < steps.length - 1 ? '1px solid var(--border-color)' : 'none',
                     display: 'flex', alignItems: 'center', gap: '12px',
