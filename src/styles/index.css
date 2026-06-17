@@ -161,4 +161,38 @@ input:focus, textarea:focus, select:focus {
 @media (max-width: 768px) {
   .flex-col-mobile { flex-direction: column; }
   .grid-cols-1-mobile { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .footer-contacts { grid-template-columns: 1fr !important; gap: 20px !important; }
+}
+
+/* Top Bar Styles */
+.top-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #cccccc !important;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+.top-bar-link:hover {
+  color: var(--white) !important;
+}
+.top-bar-link svg {
+  transition: var(--transition);
+}
+.top-bar-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Footer Contact Styles */
+.footer-contact-card {
+  text-decoration: none !important;
+  transition: var(--transition);
+}
+.footer-contact-card:hover .contact-icon-circle {
+  border-color: var(--white) !important;
+  color: var(--white) !important;
+  background-color: var(--primary-red) !important;
+}
+.footer-contact-card:hover .contact-value {
+  color: var(--primary-red) !important;
 }

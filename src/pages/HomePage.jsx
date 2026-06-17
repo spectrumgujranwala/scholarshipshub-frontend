@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../utils/axios';
-import { BookOpen, GraduationCap, Globe, ShieldCheck, ArrowRight, CheckCircle2, Search, Award, Phone, Calendar, Book, X } from 'lucide-react';
+import { BookOpen, GraduationCap, Globe, ShieldCheck, ArrowRight, CheckCircle2, Search, Award, Phone, Calendar, Book, X, Mail, MapPin } from 'lucide-react';
 import logo from '../assets/spectrum_logo.png';
 
 const HomePage = () => {
@@ -187,7 +187,7 @@ const HomePage = () => {
                   <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <h3 style={{ fontSize: '1.3rem', marginBottom: '10px', color: 'var(--secondary-dark)', fontWeight: 700 }}>{scholarship.title}</h3>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '15px' }}>{scholarship.university} • <strong>{scholarship.country}</strong></p>
-                    
+
                     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
                       <span style={{ padding: '4px 10px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600, backgroundColor: '#eff6ff', color: '#1e40af' }}>{scholarship.fundedBy} Funded</span>
                       <span style={{ padding: '4px 10px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600, backgroundColor: '#ecfdf5', color: '#065f46' }}>{scholarship.studyArea}</span>
@@ -198,14 +198,14 @@ const HomePage = () => {
                         <span style={{ fontSize: '0.8rem', color: '#dc2626', fontWeight: 600 }}>Deadline: {new Date(scholarship.deadline).toLocaleDateString()}</span>
                       </div>
                       <div style={{ display: 'flex', gap: '8px' }}>
-                        <button 
+                        <button
                           onClick={() => setSelectedDetailScholarship(scholarship)}
                           className="btn-light btn-sm"
                           style={{ flex: 1, padding: '6px 10px', fontSize: '0.8rem', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer', textAlign: 'center' }}
                         >
                           View Details
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleApplyAction(scholarship)}
                           className="btn btn-primary btn-sm"
                           style={{ flex: 1, padding: '6px 10px', fontSize: '0.8rem' }}
@@ -277,18 +277,119 @@ const HomePage = () => {
             Speak directly with a Spectrum Consultants representative to guide you through your PhD scholarship application process.
           </p>
           <a href="tel:+923001234567" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '15px 40px', fontSize: '1.1rem', textDecoration: 'none' }}>
-            <Phone size={20} /> Contact Us: +92 300 123 4567
+            <Phone size={20} /> Contact Us: +92 51 275 7689
           </a>
         </div>
       </section>
 
       {/* Footer */}
       <footer style={{ backgroundColor: 'var(--secondary-dark)', color: 'white', padding: '60px 0 20px 0' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <img src={logo} alt="Spectrum" style={{ height: '60px', marginBottom: '20px' }} />
-          <p style={{ color: '#999', marginBottom: '40px' }}>Your Most Trusted Partner for Overseas Education.</p>
-          <div style={{ borderTop: '1px solid #333', paddingTop: '20px', fontSize: '0.8rem', color: '#666' }}>
-            &copy; 2026 Spectrum Overseas Education Consultants Pvt Ltd. All Rights Reserved.
+        <div className="container">
+          <div className="footer-contacts" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '30px 40px',
+            marginBottom: '40px',
+            paddingBottom: '45px',
+            borderBottom: '1px solid #333',
+            maxWidth: '850px',
+            margin: '0 auto 40px auto'
+          }}>
+            {/* Phone */}
+            <a href="tel:+92512757689" className="footer-contact-card" style={{ display: 'flex', alignItems: 'center', gap: '15px', color: 'white' }}>
+              <div className="contact-icon-circle" style={{
+                width: '54px',
+                height: '54px',
+                borderRadius: '50%',
+                border: '2px solid var(--primary-red)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--primary-red)',
+                flexShrink: 0,
+                transition: 'var(--transition)'
+              }}>
+                <Phone size={22} />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.85rem', color: '#999' }}>Call Us 7/24</div>
+                <div className="contact-value" style={{ fontSize: '1.05rem', fontWeight: 'bold', marginTop: '2px', transition: 'var(--transition)' }}>+92 51 275 7689</div>
+              </div>
+            </a>
+
+            {/* Email */}
+            <a href="mailto:info@spectrumconsultants.pk" className="footer-contact-card" style={{ display: 'flex', alignItems: 'center', gap: '15px', color: 'white' }}>
+              <div className="contact-icon-circle" style={{
+                width: '54px',
+                height: '54px',
+                borderRadius: '50%',
+                border: '2px solid var(--primary-red)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--primary-red)',
+                flexShrink: 0,
+                transition: 'var(--transition)'
+              }}>
+                <Mail size={22} />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.85rem', color: '#999' }}>Contact Us</div>
+                <div className="contact-value" style={{ fontSize: '1.05rem', fontWeight: 'bold', marginTop: '2px', transition: 'var(--transition)' }}>info@spectrumconsultants.pk</div>
+              </div>
+            </a>
+
+            {/* Location */}
+            <a href="https://maps.google.com/?q=Gulberg+Islamabad" target="_blank" rel="noopener noreferrer" className="footer-contact-card" style={{ display: 'flex', alignItems: 'center', gap: '15px', color: 'white' }}>
+              <div className="contact-icon-circle" style={{
+                width: '54px',
+                height: '54px',
+                borderRadius: '50%',
+                border: '2px solid var(--primary-red)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--primary-red)',
+                flexShrink: 0,
+                transition: 'var(--transition)'
+              }}>
+                <MapPin size={22} />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.85rem', color: '#999' }}>Location</div>
+                <div className="contact-value" style={{ fontSize: '1.05rem', fontWeight: 'bold', marginTop: '2px', transition: 'var(--transition)' }}>Gulberg. Islamabad</div>
+              </div>
+            </a>
+
+            {/* WhatsApp */}
+            <a href="https://wa.me/923004493831" target="_blank" rel="noopener noreferrer" className="footer-contact-card" style={{ display: 'flex', alignItems: 'center', gap: '15px', color: 'white' }}>
+              <div className="contact-icon-circle" style={{
+                width: '54px',
+                height: '54px',
+                borderRadius: '50%',
+                border: '2px solid var(--primary-red)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--primary-red)',
+                flexShrink: 0,
+                transition: 'var(--transition)'
+              }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.59-4.846c1.6.95 3.167 1.448 4.787 1.449 5.423 0 9.832-4.388 9.835-9.78.001-2.614-1.011-5.071-2.853-6.915C16.57 2.064 14.116.822 11.5.822c-5.429 0-9.843 4.39-9.846 9.784-.001 2.03.533 4.02 1.545 5.76L2.17 20.89l4.477-1.173zM18.067 14.9c-.33-.164-1.953-.964-2.253-1.074-.3-.109-.519-.164-.738.164-.22.329-.849 1.074-1.04 1.293-.192.219-.384.246-.714.082-2.189-1.096-3.824-2.825-4.993-4.846-.33-.568.33-.527.944-1.748.102-.204.051-.383-.027-.547-.079-.164-.738-1.78-.997-2.427-.267-.643-.54-.555-.738-.565-.19-.009-.411-.011-.63-.011-.22 0-.577.082-.88.411-.303.329-1.157 1.129-1.157 2.753 0 1.624 1.182 3.193 1.346 3.413.165.219 2.328 3.555 5.639 4.985.787.34 1.402.543 1.882.697.79.251 1.512.215 2.08.131.633-.093 1.953-.799 2.228-1.571.275-.773.275-1.436.192-1.571-.082-.136-.3-.219-.63-.383z" />
+                </svg>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.85rem', color: '#999' }}>WhatsApp Support</div>
+                <div className="contact-value" style={{ fontSize: '1.05rem', fontWeight: 'bold', marginTop: '2px', transition: 'var(--transition)' }}>03004493831</div>
+              </div>
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ borderTop: '1px solid #333', paddingTop: '20px', fontSize: '0.8rem', color: '#666' }}>
+              &copy; 2026 Spectrum Overseas Education Consultants Pvt Ltd. All Rights Reserved.
+            </div>
           </div>
         </div>
       </footer>
@@ -318,7 +419,7 @@ const HomePage = () => {
             boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
             position: 'relative',
           }} onClick={(e) => e.stopPropagation()}>
-            
+
             <div style={{
               padding: '20px 25px',
               borderBottom: '1px solid #e5e7eb',
@@ -338,7 +439,7 @@ const HomePage = () => {
                   {selectedDetailScholarship.university} • <strong>{selectedDetailScholarship.country}</strong>
                 </p>
               </div>
-              <button 
+              <button
                 onClick={() => setSelectedDetailScholarship(null)}
                 style={{
                   background: 'none',
@@ -356,7 +457,7 @@ const HomePage = () => {
             </div>
 
             <div style={{ padding: '25px' }}>
-              
+
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
@@ -429,14 +530,14 @@ const HomePage = () => {
               backgroundColor: 'white',
               zIndex: 10
             }}>
-              <button 
+              <button
                 onClick={() => setSelectedDetailScholarship(null)}
                 className="btn-light"
                 style={{ padding: '8px 20px', border: '1px solid #ddd', borderRadius: '6px', cursor: 'pointer' }}
               >
                 Close
               </button>
-              <button 
+              <button
                 onClick={() => {
                   handleApplyAction(selectedDetailScholarship);
                   setSelectedDetailScholarship(null);
